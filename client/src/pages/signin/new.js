@@ -1,3 +1,5 @@
+
+
 "use client";
 import "../../app/globals.css";
 import React, { useState, useEffect } from "react";
@@ -47,21 +49,7 @@ export default function SignIn() {
       className={`flex flex-col md:flex-row min-h-screen transition-all duration-500 ${backgroundStyle}`}
     >
       {/* Top section (Left on desktop) */}
-      <div className="flex-1 p-6 md:p-12 flex flex-col justify-center items-center text-center relative overflow-hidden rounded-b-[50px] md:rounded-none">
-        {/* Dark mode button for mobile view */}
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className={`md:hidden absolute top-4 right-4 p-2 rounded-full ${
-            darkMode ? "bg-gray-700" : "bg-gray-200"
-          }`}
-        >
-          {darkMode ? (
-            <Sun className="text-yellow-300" />
-          ) : (
-            <Moon className="text-gray-800" />
-          )}
-        </button>
-
+      <div className="flex-1 p-6 md:p-12 flex flex-col justify-center items-center text-center relative overflow-hidden">
         <motion.h1
           className={`text-4xl md:text-5xl font-bold mb-4 ${
             darkMode ? "text-white" : "text-blue-600"
@@ -111,9 +99,9 @@ export default function SignIn() {
 
       {/* Bottom section (Right on desktop) */}
       <motion.div
-        className={`flex-1 p-6 md:p-12 overflow-y-auto ${
+        className={`p-6 md:p-12 ${
           darkMode ? "bg-gray-800" : "bg-white"
-        } rounded-t-[50px] md:rounded-none md:rounded-tl-[100px] md:rounded-bl-[100px] shadow-2xl relative z-10`}
+        } rounded-t-[50px] md:rounded-none md:rounded-tl-[100px] md:rounded-bl-[100px] shadow-2xl min-h-full`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
@@ -126,10 +114,9 @@ export default function SignIn() {
           >
             Sign In
           </h2>
-          {/* Dark mode button for desktop view */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className={`hidden md:block p-2 rounded-full ${
+            className={`p-2 rounded-full ${
               darkMode ? "bg-gray-700" : "bg-gray-200"
             }`}
           >
@@ -228,7 +215,7 @@ export default function SignIn() {
               Don't have an account?{" "}
               <Link
                 href="/signup/signup"
-                className="font-semibold underline hover:text-blue-800 border-none"
+                className="font-semibold underline hover:text-blue-800"
               >
                 Sign Up
               </Link>
@@ -253,6 +240,3 @@ export default function SignIn() {
     </div>
   );
 }
-
-
-
